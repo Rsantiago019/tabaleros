@@ -4,7 +4,7 @@ Sitio web de una sola página para **Los Tabaleros**, banda argentina de folclor
 
 ## Características
 
-- **Hero** con carrusel de imágenes, logo, eslogan y botones a la agenda y a Spotify.
+- **Hero** con foto de la banda, logo, eslogan y botones a la agenda y a Spotify.
 - **Cuenta regresiva** al próximo show con entradas disponibles.
 - **Nosotros** con la foto de la banda y zonas interactivas: al pasar el mouse o tocar sobre cada integrante aparece su nombre.
 - **Últimos lanzamientos** con carátulas, años, enlaces y reproductor de Spotify.
