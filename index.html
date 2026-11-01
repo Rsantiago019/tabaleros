@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
       name="description"
       content="Los Tabaleros: folclore mutante, rock y fiesta. Música, fechas y novedades."
@@ -359,7 +360,37 @@
         ></div>
         <div class="pointer-events-none absolute -left-24 top-12 h-72 w-72 rounded-full bg-emerald-500/15 blur-[100px]" aria-hidden="true"></div>
         <div class="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-lime-400/10 blur-[110px]" aria-hidden="true"></div>
-        <div class="relative mx-auto max-w-7xl px-5 md:px-8">
+        <svg class="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-40" viewBox="0 0 1200 900" fill="none" aria-hidden="true" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="jungle-leaf" x1="0" y1="0" x2="1" y2="1">
+              <stop stop-color="#7CFF8A" />
+              <stop offset="1" stop-color="#00B85A" />
+            </linearGradient>
+          </defs>
+          <g stroke="url(#jungle-leaf)" stroke-linecap="round" stroke-linejoin="round">
+            <g stroke-width="2">
+              <path d="M-26 5C70 53 131 133 210 267" />
+              <path d="M17 31C54 23 84 26 113 40C78 51 53 56 34 58M51 62C91 48 124 48 154 60C117 75 91 81 69 84M83 96C122 76 157 74 188 85C152 104 126 112 102 115M114 132C152 109 188 105 220 114C186 136 160 145 137 149M145 174C181 148 217 140 248 147C217 173 193 184 169 190M174 216C211 186 246 176 277 180C250 210 226 222 203 230" />
+              <path d="M1226 7C1131 55 1070 135 991 269" />
+              <path d="M1183 33C1146 25 1116 28 1087 42C1122 53 1147 58 1166 60M1149 64C1109 50 1076 50 1046 62C1083 77 1109 83 1131 86M1117 98C1078 78 1043 76 1012 87C1048 106 1074 114 1098 117M1086 134C1048 111 1012 107 980 116C1014 138 1040 147 1063 151M1055 176C1019 150 983 142 952 149C983 175 1007 186 1031 192M1026 218C989 188 954 178 923 182C950 212 974 224 997 232" />
+              <path d="M-15 891C42 804 96 739 174 672M0 846C31 823 59 813 88 811C67 840 44 858 21 871M30 809C60 782 91 770 119 770C100 801 77 820 54 835M66 771C95 741 126 727 154 724C138 758 116 778 93 795M106 733C132 701 161 684 190 679C177 713 158 736 136 754" />
+              <path d="M1215 891C1158 804 1104 739 1026 672M1200 846C1169 823 1141 813 1112 811C1133 840 1156 858 1179 871M1170 809C1140 782 1109 770 1081 770C1100 801 1123 820 1146 835M1134 771C1105 741 1074 727 1046 724C1062 758 1084 778 1107 795M1094 733C1068 701 1039 684 1010 679C1023 713 1042 736 1064 754" />
+            </g>
+            <g fill="#159447" fill-opacity=".26" stroke-width="1.5">
+              <path d="M35 858C49 807 81 770 125 749C119 795 90 834 35 858Z" />
+              <path d="M67 873C79 828 109 796 153 780C145 822 117 853 67 873Z" />
+              <path d="M1165 858C1151 807 1119 770 1075 749C1081 795 1110 834 1165 858Z" />
+              <path d="M1133 873C1121 828 1091 796 1047 780C1055 822 1083 853 1133 873Z" />
+            </g>
+          </g>
+          <g stroke="#F5C451" stroke-width="2" opacity=".75">
+            <path d="M255 161v24m-12-12h24m-20-8 16 16m0-16-16 16" />
+            <path d="M944 341v20m-10-10h20m-17-7 14 14m0-14-14 14" />
+            <circle cx="73" cy="374" r="4" fill="#F5C451" />
+            <circle cx="1127" cy="509" r="4" fill="#F5C451" />
+          </g>
+        </svg>
+        <div class="relative z-10 mx-auto max-w-7xl px-5 md:px-8">
           <div class="reveal mx-auto max-w-3xl text-center">
             <p class="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">Un ritual bajo la selva</p>
             <h2 class="display-type text-4xl font-bold uppercase leading-[0.98] tracking-tight sm:text-6xl">
@@ -386,6 +417,14 @@
               <span class="absolute grid h-16 w-16 place-items-center rounded-full border border-white/60 bg-emerald-400/90 text-2xl text-[#04130d] shadow-xl shadow-emerald-950/60 transition group-hover:scale-110 group-hover:bg-emerald-300 sm:h-20 sm:w-20" aria-hidden="true">▶</span>
             </button>
           </div>
+          <a
+            href="https://www.youtube.com/watch?v=Y0NtoACv5KU"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mx-auto mt-5 flex w-fit items-center gap-2 text-sm font-semibold text-emerald-100/70 transition hover:text-emerald-200"
+          >
+            ¿No se reproduce? Miralo directamente en YouTube <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
 
@@ -417,7 +456,6 @@
         </div>
       </section>
 
-      <!-- Agenda de muestra: reemplazá por fechas oficiales y links de ticketera. -->
       <section id="agenda" class="bg-[#1a111c] py-24 md:py-32">
         <div class="mx-auto max-w-7xl px-5 md:px-8">
           <div class="reveal mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
@@ -528,15 +566,69 @@
 
       document.querySelectorAll(".video-poster").forEach((poster) => {
         poster.addEventListener("click", () => {
-          const video = document.createElement("iframe");
-          video.title = "Los Tabaleros: Una noche escondida en el paraíso";
-          video.src = `https://www.youtube-nocookie.com/embed/${poster.dataset.videoId}?autoplay=1&rel=0`;
-          video.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-          video.referrerPolicy = "strict-origin-when-cross-origin";
-          video.allowFullscreen = true;
-          video.loading = "eager";
-          video.className = "absolute inset-0 h-full w-full";
-          poster.replaceWith(video);
+          if (window.location.protocol === "file:") {
+            const notice = document.createElement("div");
+            notice.className = "absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#031009] px-6 text-center";
+            notice.setAttribute("role", "status");
+
+            const message = document.createElement("p");
+            message.className = "max-w-lg text-sm leading-6 text-emerald-50/80 sm:text-base";
+            message.textContent =
+              "YouTube bloquea el reproductor cuando esta página se abre como archivo local. Abrila desde un servidor local o desde el sitio publicado para reproducir el video acá.";
+
+            const watchLink = document.createElement("a");
+            watchLink.className = "rounded-full bg-emerald-400 px-5 py-3 text-sm font-bold text-[#04130d] transition hover:bg-emerald-300";
+            watchLink.href = `https://www.youtube.com/watch?v=${poster.dataset.videoId}`;
+            watchLink.target = "_blank";
+            watchLink.rel = "noopener noreferrer";
+            watchLink.textContent = "Ver en YouTube ↗";
+
+            notice.append(message, watchLink);
+            poster.replaceWith(notice);
+            return;
+          }
+
+          const videoId = poster.dataset.videoId;
+          const host = document.createElement("div");
+          host.className = "absolute inset-0 h-full w-full";
+          const target = document.createElement("div");
+          host.append(target);
+          poster.replaceWith(host);
+
+          const showFallback = () => {
+            host.replaceChildren();
+            host.className = "absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#031009] px-6 text-center";
+            const message = document.createElement("p");
+            message.className = "max-w-lg text-sm leading-6 text-emerald-50/80 sm:text-base";
+            message.textContent = "YouTube no permite reproducir este video dentro de la página. Podés verlo directamente en YouTube.";
+            const link = document.createElement("a");
+            link.className = "rounded-full bg-emerald-400 px-5 py-3 text-sm font-bold text-[#04130d] transition hover:bg-emerald-300";
+            link.href = `https://www.youtube.com/watch?v=${videoId}`;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "Ver en YouTube ↗";
+            host.append(message, link);
+          };
+
+          const createPlayer = () => {
+            new YT.Player(target, {
+              videoId,
+              width: "100%",
+              height: "100%",
+              playerVars: { autoplay: 1, rel: 0, playsinline: 1, origin: window.location.origin },
+              events: { onError: showFallback },
+            });
+          };
+
+          if (window.YT && window.YT.Player) {
+            createPlayer();
+          } else {
+            window.onYouTubeIframeAPIReady = createPlayer;
+            const api = document.createElement("script");
+            api.src = "https://www.youtube.com/iframe_api";
+            api.onerror = showFallback;
+            document.head.append(api);
+          }
         });
       });
 
