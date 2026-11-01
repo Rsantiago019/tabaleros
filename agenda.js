@@ -82,6 +82,69 @@
     return article;
   }
 
+  // Los shows se tratan como hora local de Argentina (UTC-3), a las 21:00.
+  function showStart(show) {
+    return new Date(`${show.event_date}T21:00:00-03:00`);
+  }
+
+  let countdownTimer;
+  function startCountdown(shows) {
+    const box = document.querySelector("#countdown");
+    if (!box) return;
+    const upcoming = shows.find((show) => !show.sold_out && showStart(show) > new Date()) || shows.find((show) => showStart(show) > new Date());
+    if (!upcoming) return;
+
+    const target = showStart(upcoming);
+    document.querySelector("#countdown-title").textContent = `${upcoming.city} · ${upcoming.venue}`;
+    const timer = document.querySelector("#countdown-timer");
+
+    function tick() {
+      const diff = target - new Date();
+      if (diff <= 0) {
+        clearInterval(countdownTimer);
+        timer.textContent = "¡Es hoy!";
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+      timer.textContent = `${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+    }
+
+    tick();
+    clearInterval(countdownTimer);
+    countdownTimer = setInterval(tick, 1000);
+    box.hidden = false;
+  }
+
+  // Datos estructurados para que Google pueda mostrar los shows como eventos.
+  function addEventSchema(shows) {
+    const events = shows.map((show) => ({
+      "@type": "MusicEvent",
+      name: `Los Tabaleros en ${show.city}`,
+      startDate: showStart(show).toISOString(),
+      eventStatus: "https://schema.org/EventScheduled",
+      location: {
+        "@type": "Place",
+        name: show.venue,
+        address: { "@type": "PostalAddress", addressLocality: show.city, addressCountry: "AR" },
+      },
+      performer: { "@type": "MusicGroup", name: "Los Tabaleros" },
+      offers: {
+        "@type": "Offer",
+        availability: show.sold_out ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+        ...(show.ticket_url && URL.canParse(show.ticket_url) && new URL(show.ticket_url).protocol === "https:"
+          ? { url: new URL(show.ticket_url).href }
+          : {}),
+      },
+    }));
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(events);
+    document.head.append(script);
+  }
+
   async function loadShows() {
     source.textContent = "Agenda oficial";
     message.textContent = "Cargando fechas…";
@@ -116,6 +179,8 @@
     data.forEach((show) => fragment.append(makeShowCard(show)));
     list.append(fragment);
     message.textContent = "";
+    startCountdown(data);
+    addEventSchema(data);
   }
 
   loadShows().catch((error) => {

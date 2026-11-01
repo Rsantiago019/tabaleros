@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#100b12" />
+    <meta name="robots" content="noindex, nofollow" />
     <title>Administrar agenda — Los Tabaleros</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./supabase-config.js"></script>
   </head>
   <body class="min-h-screen bg-[#100b12] px-5 py-10 text-[#f8f2e9] antialiased">
@@ -59,7 +61,7 @@
               <input id="event-city" name="city" type="text" maxlength="100" required class="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-[#9b5cff]" />
             </div>
             <div class="sm:col-span-2">
-              <label for="event-venue" class="mb-2 block text-sm font-medium">Venue</label>
+              <label for="event-venue" class="mb-2 block text-sm font-medium">Lugar del Evento</label>
               <input id="event-venue" name="venue" type="text" maxlength="160" required class="w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3 text-white outline-none focus:border-[#9b5cff]" />
             </div>
             <div class="sm:col-span-2">
@@ -136,7 +138,20 @@
         deleteButton.className = "w-fit rounded-full border border-rose-300/30 px-4 py-2 text-xs font-bold text-rose-200 transition hover:bg-rose-400/10 disabled:opacity-50";
         deleteButton.textContent = "Eliminar";
         deleteButton.addEventListener("click", async () => {
-          if (!window.confirm(`¿Eliminar la fecha de ${show.city} del ${formatDate(show.event_date)}?`)) {
+          const { isConfirmed } = await Swal.fire({
+            title: "¿Eliminar esta fecha?",
+            text: `${show.city} · ${formatDate(show.event_date)}. Esta acción no se puede deshacer.`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#ff3d61",
+            cancelButtonColor: "#4b3a50",
+            focusCancel: true,
+            background: "#1a111c",
+            color: "#f8f2e9",
+          });
+          if (!isConfirmed) {
             return;
           }
           deleteButton.disabled = true;

@@ -6,10 +6,39 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
       name="description"
-      content="Los Tabaleros: folclore mutante, rock y fiesta. Música, fechas y novedades."
+      content="Sitio oficial de Los Tabaleros, banda argentina de folclore mutante y rock surrealista. Escuchá sus últimos lanzamientos, mirá el próximo show y comprá entradas."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#100b12" />
-    <title>Los Tabaleros — Folclore mutante</title>
+    <title>Los Tabaleros | Sitio oficial · Folclore mutante, música y shows en vivo</title>
+    <link rel="icon" href="./assets/logo-tabalero.jpg" />
+    <!-- Al publicar, reemplazá las rutas relativas de og:image y twitter:image por URLs absolutas (https://tu-dominio/assets/...) y agregá <link rel="canonical">. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Los Tabaleros" />
+    <meta property="og:title" content="Los Tabaleros | Sitio oficial" />
+    <meta property="og:description" content="Folclore mutante, rock y fiesta. Música, fechas y entradas." />
+    <meta property="og:image" content="./assets/banda-tabaleros.webp" />
+    <meta property="og:image:alt" content="Los Tabaleros, banda argentina de folclore mutante" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Los Tabaleros | Sitio oficial" />
+    <meta name="twitter:description" content="Folclore mutante, rock y fiesta. Música, fechas y entradas." />
+    <meta name="twitter:image" content="./assets/banda-tabaleros.webp" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Los Tabaleros",
+        "genre": ["Folclore", "Rock"],
+        "description": "Banda argentina de folclore mutante y rock surrealista.",
+        "image": "./assets/banda-tabaleros.webp",
+        "sameAs": [
+          "https://open.spotify.com/artist/6aGMO33ETXuACXj9KfoyQg",
+          "https://www.instagram.com/lostabaleros/",
+          "https://www.youtube.com/@LosTabaleros"
+        ]
+      }
+    </script>
 
     <!-- Tailwind CSS por CDN: ideal para este template; en producción conviene compilarlo. -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -154,7 +183,7 @@
       <section id="inicio" class="hero-grain relative flex min-h-[92svh] items-end overflow-hidden bg-[#241021] pt-28 md:min-h-screen">
         <div
           class="absolute inset-0 bg-cover bg-center opacity-65"
-          style="background-image: url('https://cdn-images.dzcdn.net/images/artist/ff68a6599d4de7b7641bda909383a770/1000x1000-000000-80-0-0.jpg')"
+          style="background-image: url('/assets/logo-tabalero.jpg')"
           role="img"
           aria-label="Los Tabaleros"
         ></div>
@@ -168,6 +197,11 @@
             Los<br />
             <span class="text-coral">Tabaleros</span>
           </h1>
+          <div id="countdown" hidden class="mt-7 w-fit rounded-2xl border border-white/15 bg-black/40 px-5 py-4 backdrop-blur">
+            <p class="text-[10px] font-bold uppercase tracking-[0.24em] text-gold">Próximo show</p>
+            <p id="countdown-title" class="mt-1 text-sm font-bold text-white md:text-base"></p>
+            <p id="countdown-timer" class="display-type mt-2 text-3xl font-bold tabular-nums text-coral md:text-4xl" role="timer" aria-live="off"></p>
+          </div>
           <div class="mt-7 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <p class="max-w-lg text-lg leading-relaxed text-white/80 md:text-xl">
               Folclore mutante.<br class="hidden sm:block" />
@@ -213,7 +247,7 @@
               </div>
               <figure class="relative mt-6 aspect-video overflow-hidden rounded-2xl border border-white/10 bg-[#241021]">
                 <img
-                  src="https://billboard.ar/wp-content/uploads/2025/03/66576d7a2dba6f5d44ffaede_Los-Tabaleros.webp"
+                  src="/assets/banda-tabaleros.webp"
                   alt="Los Tabaleros juntos. Pasá el cursor o enfocá a cada integrante para ver su nombre."
                   loading="lazy"
                   class="absolute inset-0 h-full w-full object-cover object-top"
@@ -221,25 +255,25 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent"></div>
                 <!-- Las zonas corresponden a los integrantes de izquierda a derecha en la foto. -->
                 <button type="button" aria-label="Tobías Fabio" aria-pressed="false" style="--hotspot-shape: polygon(67% 0%, 79% 3%, 88% 10%, 94% 20%, 96% 29%, 100% 35%, 100% 51%, 94% 61%, 99% 100%, 0% 100%, 2% 58%, 0% 42%, 13% 35%, 31% 30%, 43% 24%, 47% 14%, 54% 6%)" class="member-hotspot group absolute top-[12%] bottom-[3%] left-[4%] z-10 w-[19%] transition focus-visible:outline-none">
-                  <span class="absolute bottom-3 left-[67%] -translate-x-1/2 rounded-full bg-coral px-3 py-1.5 text-center text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Tobías Fabio</span>
+                  <span class="absolute bottom-full left-[67%] mb-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-coral px-2 py-1 text-center text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Tobías Fabio</span>
                 </button>
                 <button type="button" aria-label="Joaquín Lagos" aria-pressed="false" style="--hotspot-shape: polygon(52% 0%, 68% 3%, 80% 10%, 86% 20%, 89% 30%, 100% 36%, 100% 51%, 92% 61%, 97% 100%, 3% 100%, 8% 60%, 0% 49%, 8% 39%, 21% 33%, 25% 23%, 27% 12%, 36% 4%)" class="member-hotspot group absolute top-[22%] bottom-[3%] left-[22.85%] z-10 w-[11.5%] transition focus-visible:outline-none">
-                  <span class="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-coral px-3 py-1.5 text-center text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Joaquín Lagos</span>
+                  <span class="absolute bottom-full left-1/2 mb-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-coral px-2 py-1 text-center text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Joaquín Lagos</span>
                 </button>
                 <button type="button" aria-label="Félix María Mateos" aria-pressed="false" style="--hotspot-shape: polygon(50% 0%, 66% 3%, 79% 11%, 84% 21%, 86% 31%, 100% 38%, 100% 55%, 92% 63%, 98% 100%, 2% 100%, 6% 61%, 0% 53%, 10% 39%, 24% 33%, 27% 22%, 32% 11%, 39% 3%)" class="member-hotspot group absolute top-[19%] bottom-[3%] left-[34.35%] z-10 w-[11.6%] transition focus-visible:outline-none">
-                  <span class="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-coral px-3 py-1.5 text-center text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Félix María Mateos</span>
+                  <span class="absolute bottom-full left-1/2 mb-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-coral px-2 py-1 text-center text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Félix María Mateos</span>
                 </button>
                 <button type="button" aria-label="Ignacio Díaz" aria-pressed="false" style="--hotspot-shape: polygon(50% 0%, 66% 3%, 78% 11%, 82% 22%, 86% 31%, 100% 38%, 100% 55%, 92% 63%, 98% 100%, 2% 100%, 6% 62%, 0% 54%, 10% 39%, 24% 33%, 28% 22%, 32% 11%, 39% 3%)" class="member-hotspot group absolute top-[19%] bottom-[3%] left-[45.95%] z-10 w-[12.25%] transition focus-visible:outline-none">
-                  <span class="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-coral px-3 py-1.5 text-center text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Ignacio Díaz</span>
+                  <span class="absolute bottom-full left-1/2 mb-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-coral px-2 py-1 text-center text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Ignacio Díaz</span>
                 </button>
                 <button type="button" aria-label="Roberto Luis Martínez" aria-pressed="false" style="--hotspot-shape: polygon(50% 0%, 67% 3%, 79% 11%, 84% 22%, 87% 31%, 100% 39%, 100% 55%, 93% 63%, 98% 100%, 2% 100%, 6% 62%, 0% 54%, 10% 39%, 24% 33%, 28% 22%, 32% 11%, 39% 3%)" class="member-hotspot group absolute top-[20%] bottom-[3%] left-[58.2%] z-10 w-[10.45%] transition focus-visible:outline-none">
-                  <span class="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-coral px-3 py-1.5 text-center text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Roberto Luis Martínez</span>
+                  <span class="absolute bottom-full left-1/2 mb-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-coral px-2 py-1 text-center text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Roberto Luis Martínez</span>
                 </button>
                 <button type="button" aria-label="Daniel Giannico" aria-pressed="false" style="--hotspot-shape: polygon(39% 0%, 57% 3%, 72% 11%, 78% 22%, 81% 31%, 100% 39%, 100% 56%, 91% 64%, 97% 100%, 3% 100%, 8% 63%, 0% 54%, 11% 39%, 27% 33%, 30% 22%, 28% 11%)" class="member-hotspot group absolute top-[22%] bottom-[3%] left-[68.65%] z-10 w-[11.15%] transition focus-visible:outline-none">
-                  <span class="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-coral px-3 py-1.5 text-center text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Daniel Giannico</span>
+                  <span class="absolute bottom-full left-1/2 mb-1 -translate-x-1/2 whitespace-nowrap rounded-full bg-coral px-2 py-1 text-center text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">Daniel Giannico</span>
                 </button>
                 <button type="button" aria-label="José María Martínez" aria-pressed="false" style="--hotspot-shape: polygon(43% 0%, 59% 3%, 72% 11%, 78% 22%, 81% 31%, 100% 39%, 100% 55%, 92% 63%, 97% 100%, 3% 100%, 8% 62%, 0% 53%, 11% 39%, 27% 32%, 29% 21%, 30% 11%)" class="member-hotspot group absolute top-[13%] bottom-[3%] left-[79.8%] z-10 w-[18.2%] transition focus-visible:outline-none">
-                  <span class="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-coral px-3 py-1.5 text-center text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">José María Martínez</span>
+                  <span class="absolute bottom-full right-0 mb-1 whitespace-nowrap rounded-full bg-coral px-2 py-1 text-center text-[10px] font-bold sm:px-3 sm:py-1.5 sm:text-xs text-white opacity-0 shadow-lg transition group-hover:opacity-100 group-focus-visible:opacity-100">José María Martínez</span>
                 </button>
                 <figcaption class="sr-only">Los integrantes están identificados en el orden de izquierda a derecha. En pantallas táctiles, tocá una zona para ver el nombre.</figcaption>
               </figure>
@@ -265,25 +299,25 @@
           </div>
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <article class="reveal group">
-              <a href="https://open.spotify.com/intl-es/track/5CpSOeDKKBQn9ua26UHLn0" target="_blank" rel="noopener noreferrer" class="block" aria-label="Escuchar Azúcar y Algodón en Spotify">
+              <a href="https://open.spotify.com/intl-es/track/1CTa2C6T5wIUB1YBvfUWdS" target="_blank" rel="noopener noreferrer" class="block" aria-label="Escuchar Azúcar y algodón con El Kuelgue en Spotify">
                 <div class="album-art relative aspect-square overflow-hidden rounded-2xl p-6 text-white shadow-xl transition duration-500 group-hover:-translate-y-1">
-                  <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02ddae83ab9c70321b98df332f" alt="Carátula de Azúcar y Algodón" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                  <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e74519bf68fafa36e3f78368" alt="Carátula de Azúcar y algodón con El Kuelgue" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   <span class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/15"></span>
                   <span class="absolute -right-8 top-10 h-48 w-48 rounded-full border border-white/30"></span>
                   <span class="absolute -right-1 top-[4.25rem] h-36 w-36 rounded-full border border-white/30"></span>
                   <span class="absolute bottom-7 left-6 text-[10px] font-bold uppercase tracking-[0.25em]">Los Tabaleros</span>
-                  <span class="display-type absolute bottom-12 left-6 max-w-[80%] text-4xl font-bold uppercase leading-none">Azúcar y<br />Algodón</span>
-                  <span class="absolute right-6 top-6 rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold">2023</span>
+                  <span class="display-type absolute bottom-12 left-6 max-w-[80%] text-4xl font-bold uppercase leading-none">Azúcar y algodón</span>
+                  <span class="absolute right-6 top-6 rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold">2026</span>
                   <span class="absolute bottom-6 right-6 grid h-11 w-11 place-items-center rounded-full bg-paper text-lg text-ink transition group-hover:bg-coral group-hover:text-white" aria-hidden="true">▶</span>
                 </div>
                 <div class="mt-4 flex items-center justify-between">
-                  <div><h3 class="font-bold">Azúcar y Algodón</h3><p class="mt-1 text-sm text-ink/55">Caramelos de Felicidad · 2023</p></div>
+                  <div><h3 class="font-bold">Azúcar y algodón</h3><p class="mt-1 text-sm text-ink/55">feat. El Kuelgue · 2026</p></div>
                   <span class="text-sm font-bold text-rose-700">Spotify ↗</span>
                 </div>
               </a>
               <iframe
-                title="Reproducir Azúcar y Algodón de Los Tabaleros"
-                src="https://open.spotify.com/embed/track/5CpSOeDKKBQn9ua26UHLn0?utm_source=generator"
+               title="Reproducir Azúcar y algodón de Los Tabaleros con El Kuelgue"
+                src="https://open.spotify.com/embed/track/1CTa2C6T5wIUB1YBvfUWdS?utm_source=generator"
                 width="100%"
                 height="152"
                 frameborder="0"
@@ -293,25 +327,25 @@
               ></iframe>
             </article>
             <article class="reveal group">
-              <a href="https://open.spotify.com/intl-es/track/2DfhgJeqYOurNo4BWla1uE" target="_blank" rel="noopener noreferrer" class="block" aria-label="Escuchar Escalera en Spotify">
+              <a href="https://open.spotify.com/intl-es/track/7A5QPWELIhRXiARD0T3tjF" target="_blank" rel="noopener noreferrer" class="block" aria-label="Escuchar Campera de cuero en Spotify">
                 <div class="album-art relative aspect-square overflow-hidden rounded-2xl p-6 text-white shadow-xl transition duration-500 group-hover:-translate-y-1">
-                  <img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e029c916e4ba60b399a8a628ab8" alt="Carátula de Escalera" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                  <img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e021dac255338b053ac51007c26" alt="Carátula de Campera de cuero" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   <span class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/15"></span>
                   <span class="absolute -left-8 top-12 h-52 w-52 rotate-12 border border-white/30"></span>
                   <span class="absolute -left-1 top-[4.25rem] h-40 w-40 rotate-12 border border-white/30"></span>
                   <span class="absolute bottom-7 left-6 text-[10px] font-bold uppercase tracking-[0.25em]">Los Tabaleros</span>
-                  <span class="display-type absolute bottom-12 left-6 max-w-[80%] text-4xl font-bold uppercase leading-none">Escalera</span>
-                  <span class="absolute right-6 top-6 rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold">Spotify</span>
+                  <span class="display-type absolute bottom-12 left-6 max-w-[80%] text-4xl font-bold                   uppercase leading-none">Campera de cuero</span>
+                                    <span class="absolute right-6 top-6 rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold">2025</span>
                   <span class="absolute bottom-6 right-6 grid h-11 w-11 place-items-center rounded-full bg-paper text-lg text-ink transition group-hover:bg-coral group-hover:text-white" aria-hidden="true">▶</span>
                 </div>
                 <div class="mt-4 flex items-center justify-between">
-                  <div><h3 class="font-bold">Escalera</h3><p class="mt-1 text-sm text-ink/55">Single · Spotify</p></div>
+                  <div><h3 class="font-bold">Campera de cuero</h3><p class="mt-1 text-sm text-ink/55">con Las Pastillas del Abuelo · 2025</p></div>
                   <span class="text-sm font-bold text-rose-700">Spotify ↗</span>
                 </div>
               </a>
               <iframe
-                title="Reproducir Escalera de Los Tabaleros"
-                src="https://open.spotify.com/embed/track/2DfhgJeqYOurNo4BWla1uE?utm_source=generator"
+                title="Reproducir Campera de cuero de Los Tabaleros"
+                src="https://open.spotify.com/embed/track/7A5QPWELIhRXiARD0T3tjF?utm_source=generator"
                 width="100%"
                 height="152"
                 frameborder="0"
@@ -321,25 +355,25 @@
               ></iframe>
             </article>
             <article class="reveal group">
-              <a href="https://open.spotify.com/intl-es/track/6q1llYmZvQQ59HSDnJo8BL" target="_blank" rel="noopener noreferrer" class="block" aria-label="Abrir la selección de Ritual Tabalero en Spotify">
+              <a href="https://open.spotify.com/intl-es/track/5iGFSvaJU5WAQv2fRgYplf" target="_blank" rel="noopener noreferrer" class="block" aria-label="Escuchar Eterno Amor en Spotify">
                 <div class="album-art relative aspect-square overflow-hidden rounded-2xl p-6 text-white shadow-xl transition duration-500 group-hover:-translate-y-1">
-                  <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02e3e017a83fa06d7df1d80fc0" alt="Carátula de Once - En Vivo, enlace de Spotify indicado para Ritual Tabalero" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                  <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02ddae83ab9c70321b98df332f" alt="Carátula de Eterno Amor" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   <span class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/15"></span>
                   <span class="absolute right-8 top-8 h-40 w-40 rounded-full bg-coral/30 blur-2xl"></span>
                   <span class="absolute bottom-8 right-8 h-48 w-48 rounded-full border border-white/30"></span>
                   <span class="absolute bottom-7 left-6 text-[10px] font-bold uppercase tracking-[0.25em]">Los Tabaleros</span>
-                  <span class="display-type absolute bottom-12 left-6 max-w-[80%] text-4xl font-bold uppercase leading-none">Ritual<br />Tabalero</span>
-                  <span class="absolute right-6 top-6 rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold">En vivo</span>
+                  <span class="display-type absolute bottom-12 left-6 max-w-[80%] text-4xl font-bold                   uppercase leading-none">Eterno Amor</span>
+                                    <span class="absolute right-6 top-6 rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold">2023</span>
                   <span class="absolute bottom-6 right-6 grid h-11 w-11 place-items-center rounded-full bg-paper text-lg text-ink transition group-hover:bg-coral group-hover:text-white" aria-hidden="true">▶</span>
                 </div>
                 <div class="mt-4 flex items-center justify-between">
-                  <div><h3 class="font-bold">Ritual Tabalero</h3><p class="mt-1 text-sm text-ink/55">En vivo · Spotify</p></div>
+                  <div><h3 class="font-bold">Eterno Amor</h3><p class="mt-1 text-sm text-ink/55">Single · 2023</p></div>
                   <span class="text-sm font-bold text-rose-700">Spotify ↗</span>
                 </div>
               </a>
               <iframe
-                title="Reproducir la selección de Ritual Tabalero en Spotify"
-                src="https://open.spotify.com/embed/track/6q1llYmZvQQ59HSDnJo8BL?utm_source=generator"
+                title="Reproducir Eterno Amor de Los Tabaleros"
+                src="https://open.spotify.com/embed/track/5iGFSvaJU5WAQv2fRgYplf?utm_source=generator"
                 width="100%"
                 height="152"
                 frameborder="0"
@@ -401,11 +435,12 @@
             </p>
           </div>
           <div class="reveal relative mx-auto mt-10 aspect-video max-w-5xl overflow-hidden rounded-2xl border border-emerald-300/25 bg-[#031009] shadow-2xl shadow-emerald-950/60 sm:rounded-3xl">
-            <button
-              type="button"
+            <a
+              href="https://www.youtube.com/watch?v=Y0NtoACv5KU"
+              target="_blank"
+              rel="noopener noreferrer"
               class="video-poster group absolute inset-0 grid h-full w-full place-items-center"
-              data-video-id="Y0NtoACv5KU"
-              aria-label="Reproducir Reviví una noche escondida en el paraíso en YouTube"
+              aria-label="Ver Reviví una noche escondida en el paraíso en YouTube"
             >
               <img
                 src="./assets/noche-escondida-paraiso.png"
@@ -415,16 +450,8 @@
               />
               <span class="absolute inset-0 bg-gradient-to-t from-[#031009]/70 via-transparent to-[#031009]/10 transition group-hover:from-[#031009]/50" aria-hidden="true"></span>
               <span class="absolute grid h-16 w-16 place-items-center rounded-full border border-white/60 bg-emerald-400/90 text-2xl text-[#04130d] shadow-xl shadow-emerald-950/60 transition group-hover:scale-110 group-hover:bg-emerald-300 sm:h-20 sm:w-20" aria-hidden="true">▶</span>
-            </button>
+            </a>
           </div>
-          <a
-            href="https://www.youtube.com/watch?v=Y0NtoACv5KU"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mx-auto mt-5 flex w-fit items-center gap-2 text-sm font-semibold text-emerald-100/70 transition hover:text-emerald-200"
-          >
-            ¿No se reproduce? Miralo directamente en YouTube <span aria-hidden="true">↗</span>
-          </a>
         </div>
       </section>
 
@@ -564,73 +591,6 @@
       );
       document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
-      document.querySelectorAll(".video-poster").forEach((poster) => {
-        poster.addEventListener("click", () => {
-          if (window.location.protocol === "file:") {
-            const notice = document.createElement("div");
-            notice.className = "absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#031009] px-6 text-center";
-            notice.setAttribute("role", "status");
-
-            const message = document.createElement("p");
-            message.className = "max-w-lg text-sm leading-6 text-emerald-50/80 sm:text-base";
-            message.textContent =
-              "YouTube bloquea el reproductor cuando esta página se abre como archivo local. Abrila desde un servidor local o desde el sitio publicado para reproducir el video acá.";
-
-            const watchLink = document.createElement("a");
-            watchLink.className = "rounded-full bg-emerald-400 px-5 py-3 text-sm font-bold text-[#04130d] transition hover:bg-emerald-300";
-            watchLink.href = `https://www.youtube.com/watch?v=${poster.dataset.videoId}`;
-            watchLink.target = "_blank";
-            watchLink.rel = "noopener noreferrer";
-            watchLink.textContent = "Ver en YouTube ↗";
-
-            notice.append(message, watchLink);
-            poster.replaceWith(notice);
-            return;
-          }
-
-          const videoId = poster.dataset.videoId;
-          const host = document.createElement("div");
-          host.className = "absolute inset-0 h-full w-full";
-          const target = document.createElement("div");
-          host.append(target);
-          poster.replaceWith(host);
-
-          const showFallback = () => {
-            host.replaceChildren();
-            host.className = "absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#031009] px-6 text-center";
-            const message = document.createElement("p");
-            message.className = "max-w-lg text-sm leading-6 text-emerald-50/80 sm:text-base";
-            message.textContent = "YouTube no permite reproducir este video dentro de la página. Podés verlo directamente en YouTube.";
-            const link = document.createElement("a");
-            link.className = "rounded-full bg-emerald-400 px-5 py-3 text-sm font-bold text-[#04130d] transition hover:bg-emerald-300";
-            link.href = `https://www.youtube.com/watch?v=${videoId}`;
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            link.textContent = "Ver en YouTube ↗";
-            host.append(message, link);
-          };
-
-          const createPlayer = () => {
-            new YT.Player(target, {
-              videoId,
-              width: "100%",
-              height: "100%",
-              playerVars: { autoplay: 1, rel: 0, playsinline: 1, origin: window.location.origin },
-              events: { onError: showFallback },
-            });
-          };
-
-          if (window.YT && window.YT.Player) {
-            createPlayer();
-          } else {
-            window.onYouTubeIframeAPIReady = createPlayer;
-            const api = document.createElement("script");
-            api.src = "https://www.youtube.com/iframe_api";
-            api.onerror = showFallback;
-            document.head.append(api);
-          }
-        });
-      });
 
       document.querySelector("#mailing-form").addEventListener("submit", (event) => {
         event.preventDefault();
